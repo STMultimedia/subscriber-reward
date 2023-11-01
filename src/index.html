@@ -1,0 +1,349 @@
+<html lang="en">
+
+<head>
+  <!-- Notes -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bgd-navbar">
+    <a class="navbar-brand" href="#" id="brandDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>EA Tracker</b></a>
+    <div class="dropdown-menu" aria-labelledby="brandDropdown">
+      <h5 class="dropdown-header">PAE Portal Sites</h5>
+      <h4><a class="dropdown-item" href="#">PAE Portal</a></h4>
+      <h4><a class="dropdown-item" href="#">&nbsp;&nbsp;IPS Dashboard</a></h4>
+      <h4><a class="dropdown-item active" href="#">&nbsp;&nbsp;EA Tracker</a></h4>
+      <h4><a class="dropdown-item" href="#">&nbsp;&nbsp;Design Dashboard</a></h4>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">IOTG EA Dashboard</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Show Archived EA Programs</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Comet Lake S EA</a>
+            <a class="dropdown-item" href="#">Keem Bay EA</a>
+            <a class="dropdown-item" href="#">Tiger Lake UP3 EA</a>
+            <a class="dropdown-item" href="#">... EA</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Options
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">New EA Program</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:filters = []; filterorder =[];updatedisplay();">Clear Splits</a>
+            <a class="dropdown-item" href="javascript:showvalues=!showvalues;updatedisplay();">Show/Hide Percentages</a>
+            <a class="dropdown-item" href="javascript:toggle_report_type(); updatedisplay();">Toggle HW/SW View</a> 
+          </div>
+        </li>
+      </ul>
+      <!-- TO ADD -->
+      <form class="form-inline my-2 my-lg-0 mx-2">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search (ctrl-space)" aria-label="Search" onfocus="gs_showModal();">
+      </form>
+      <ul class="navbar-nav my-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Help/Info
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Hello, Scott!</a>
+            <a class="dropdown-item" href="#">Data Last Updated 3h Ago</a>
+            <a class="dropdown-item" href="#">Admin</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Support Wiki</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- End Nav -->
+  <!-- Start Main Page -->
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-md-12 pb-3">
+        <span class="py-2 display-4">IOTG EA Dashboard</span>
+        <span class="h3"><span id="type-pill" data-toggle="tooltip" data-placement="bottom" title="Click to toggle between HW Designs & SW Partners" class="badge badge-pill badge-dark ease report-type" onclick="javascript:toggle_report_type(); updatedisplay();">HW</span></span> <!-- TO UPDATE/ADD -->
+      </div>
+    </div>
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-12 mb-4"><!-- TO UPDATE -->
+            <span class="ease text-muted"><span class="mb-0 display-4 ease text-black-50" id="totaldesigns">Loading...</span> <span id="leftfiltername" class="text-break"></span> HW EA Designs</span>
+            <div class="progress my-2" style="height: 2px;">
+              <div class="progress-bar bg-dark" role="progressbar" style="width: 100%" data-original-title="" title=""></div>
+            </div>
+            <span class="ease"><span id="totalISVs" class="display-4 ease font-weight-normal">Loading...</span> <span id="leftfilternamesw" class="text-break"></span> SW EA Partners</span>
+          </div>
+        </div>
+        <!-- Left Column: Splits -->
+        <div id="splits" class="row">
+          <div id="splitVertical" data-order="0" class="col-12 mb-4 split">
+            <h5>Vertical <small id="TotalVertical" class="text-total">/ 137 IOTG</small></h5>
+            <div class="progress mb-1">
+              <div id="barVerticalISD" data-split="Vertical" data-splitvalue="ISD" class="progress-bar bg-light" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
+              <div id="barVerticalRBHE" data-split="Vertical" data-splitvalue="RBHE" class="progress-bar bg-light" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+              <div id="barVerticalVMC" data-split="Vertical" data-splitvalue="VMC" class="progress-bar bg-light" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
+            </div>
+            <div class="d-flex flex-wrap legend">
+              <div class="mr-2 legend-item" data-split="Vertical" data-splitvalue="ISD"><span id="legendVerticalISD" class="badge badge-pill badge-light">4</span> ISD</div>
+              <div class="mr-2 legend-item" data-split="Vertical" data-splitvalue="RBHE"><span id="legendVerticalRBHE" class="badge badge-pill badge-light">36</span> RBHE</div>
+              <div class="mr-2 legend-item" data-split="Vertical" data-splitvalue="VMC"><span id="legendVerticalVMC" class="badge badge-pill badge-light">6</span> VMC</div>
+            </div>
+          </div>
+          <div id="splitApplication" data-order="0" class="col-12 mb-4 split d-none">
+            <h5>Application <small id="TotalApplication" class="text-total"> / <span class="badge badge-pill VerticalVMC">82</span> VMC</small></h5>
+            <div class="progress mb-1">
+              <div id="barApplicationeODM" data-split="Application" data-splitvalue="eODM" class="progress-bar bg-light" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
+              <div id="barApplicationOffice-Automation" data-split="Application" data-splitvalue="Office-Automation" class="progress-bar bg-light" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+              <div id="barApplicationPublic-Sector" data-split="Application" data-splitvalue="Public-Sector" class="progress-bar bg-light" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
+              <div id="barApplicationVideo" data-split="Application" data-splitvalue="Video" class="progress-bar bg-light" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
+              <div id="barApplicationMobility" data-split="Application" data-splitvalue="Mobility" class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+              <div id="barApplicationTransactional" data-split="Application" data-splitvalue="Transactional" class="progress-bar bg-info" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
+              <div id="barApplicationVisual" data-split="Application" data-splitvalue="Visual" class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
+              <div id="barApplicationEnergy" data-split="Application" data-splitvalue="Energy" class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+              <div id="barApplicationIndustrial" data-split="Application" data-splitvalue="Industrial" class="progress-bar bg-info" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
+            </div>
+            <div class="d-flex flex-wrap legend">
+              <div class="mr-2 legend-item" data-split="Application" data-splitvalue="eODM"><span id="legendApplicationeODM" class="badge badge-pill badge-light">4</span> eODM</div>
+              <div class="mr-2 legend-item" data-split="Application" data-splitvalue="Office-Automation"><span id="legendApplicationOffice-Automation" class="badge badge-pill badge-light">36</span> Office Automation</div>
+              <div class="mr-2 legend-item" data-split="Application" data-splitvalue="Public-Sector"><span id="legendApplicationPublic-Sector" class="badge badge-pill badge-light">6</span> Public Sector</div>
+              <div class="mr-2 legend-item" data-split="Application" data-splitvalue="Video"><span id="legendApplicationVideo" class="badge badge-pill badge-light">4</span> Video</div>
+              <div class="mr-2 legend-item" data-split="Application" data-splitvalue="Mobility"><span id="legendApplicationMobility" class="badge badge-pill badge-light">36</span> Mobility</div>
+              <div class="mr-2 legend-item" data-split="Application" data-splitvalue="Transactional"><span id="legendApplicationTransactional" class="badge badge-pill badge-light">6</span> Transactional</div>
+              <div class="mr-2 legend-item" data-split="Application" data-splitvalue="Visual"><span id="legendApplicationVisual" class="badge badge-pill badge-light">4</span> Visual</div>
+              <div class="mr-2 legend-item" data-split="Application" data-splitvalue="Energy"><span id="legendApplicationEnergy" class="badge badge-pill badge-light">36</span> Energy</div>
+              <div class="mr-2 legend-item" data-split="Application" data-splitvalue="Industrial"><span id="legendApplicationIndustrial" class="badge badge-pill badge-light">6</span> Industrial</div>
+            </div>
+          </div>
+          <div id="splitGEO" data-order="2" class="col-12 mb-4 split">
+            <h5>GEO<small id="TotalGEO" class="text-total"> / <span class="badge badge-pill ApplicationeODM">67</span> eODM</small></h5>
+            <div class="progress mb-1">
+              <div id="barGEOAPJ" data-split="GEO" data-splitvalue="APJ" class="progress-bar bg-light" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
+              <div id="barGEOPRC" data-split="GEO" data-splitvalue="PRC" class="progress-bar bg-light" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
+              <div id="barGEOASMO" data-split="GEO" data-splitvalue="ASMO" class="progress-bar bg-light" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
+              <div id="barGEOEMEA" data-split="GEO" data-splitvalue="EMEA" class="progress-bar bg-light" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+            <div class="d-flex flex-wrap legend">
+              <div class="mr-2 legend-item" data-split="GEO" data-splitvalue="APJ"><span id="legendGEOAPJ" class="badge badge-pill badge-light">4</span> APJ</div>
+              <div class="mr-2 legend-item" data-split="GEO" data-splitvalue="PRC"><span id="legendGEOPRC" class="badge badge-pill badge-light">36</span> PRC</div>
+              <div class="mr-2 legend-item" data-split="GEO" data-splitvalue="ASMO"><span id="legendGEOASMO" class="badge badge-pill badge-light">6</span> ASMO</div>
+              <div class="mr-2 legend-item" data-split="GEO" data-splitvalue="EMEA"><span id="legendGEOEMEA" class="badge badge-pill badge-light">0</span> EMEA</div>
+            </div>
+          </div>
+          <div id="splitProgram" data-order="3" class="col-12 mb-4 split">
+            <h5>Program<small id="TotalProgram" class="text-total"> / <span class="badge badge-pill GEOAPJ">40</span> APJ</small></h5>
+            <div class="progress mb-1">
+              <div id="barProgramCFLR" data-split="Program" data-splitvalue="CFLR" class="progress-bar bg-light" role="progressbar" style="width: 49.1%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">49%</div>
+              <div id="barProgramWHL" data-split="Program" data-splitvalue="WHL" class="progress-bar bg-light" role="progressbar" style="width: 30.5%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">31%</div>
+              <div id="barProgramEHL" data-split="Program" data-splitvalue="EHL" class="progress-bar bg-light" role="progressbar" style="width: 20.3%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
+            </div>
+            <div class="d-flex flex-wrap legend">
+              <div class="mr-2 legend-item" data-split="Program" data-splitvalue="CFLR"><span id="legendProgramCFLR" class="badge badge-pill badge-light">4</span> CFLR</div>
+              <div class="mr-2 legend-item" data-split="Program" data-splitvalue="WHL"><span id="legendProgramWHL" class="badge badge-pill badge-light">36</span> WHL</div>
+              <div class="mr-2 legend-item" data-split="Program" data-splitvalue="EHL"><span id="legendProgramEHL" class="badge badge-pill badge-light">6</span> EHL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right Column: Progress by Program -->
+      <div class="col-md-8">
+        <div class="row">
+          <div id="" class="col-md-12 pb-0 pt-2 text-muted"> <!-- TO UPDATE -->
+            <span id="report_type">HW Designs</span> for: <small id="rightfiltername" class=""><span class="badge-pill VerticalVMC">VMC</span></small>
+          </div>
+          <div class="col-md-12 pb-2">
+            <h3 class="pb-2">Completed Stage by Program</h3>
+          </div>
+        </div>
+        <h1 class="pb-2 text-right">
+          Core <small id="SwimlaneTotalCore" class="badge-pill group-total badge-success swimlane-Core" style="font-size: 50%;">110</small>
+          <div class="progress" style="height: 4px;">
+            <div class="progress-bar bg-success swimlane-Core" role="progressbar" style="width: 100%"></div>
+          </div>
+        </h1>
+        <div id="ProgramCFLR" class="row pb-5">
+          <div class="col-md-9 pr-0">
+            <a id="CFLRUrl" class="black-text" href="/eatracking/program?id=12&amp;x=CFLR"><h4><h4>Coffee Lake Refresh</h4></h4></a>
+            <div class="progress" style="height: 30px;">
+              <div id="barCFLRCanceled" class="progress-bar bg-canceled" role="progressbar" style="width: 5.6%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barCFLRWaiting" class="progress-bar bg-waiting" role="progressbar" style="width: 11.1%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barCFLRKickOff" class="progress-bar bg-kickoff" role="progressbar" style="width: 11.1%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barCFLRSchematic" class="progress-bar bg-schematics" role="progressbar" style="width: 22.2%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barCFLRLayout" class="progress-bar bg-layout" role="progressbar" style="width: 38.9%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barCFLRPowerOn" class="progress-bar bg-poweron" role="progressbar" style="width: 11.1%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barCFLRLaunch" class="progress-bar bg-launched" role="progressbar" style="width: 0%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="d-flex flex-wrap my-1">
+              <div class="mr-3"><span id="legendCFLRCanceled" class="badge badge-pill badge-canceled">1</span> Canceled</div>
+              <div class="mr-3"><span id="legendCFLRWaiting" class="badge badge-pill badge-waiting">2</span> Still Waiting/On Hold</div>
+              <div class="mr-3"><span id="legendCFLRKickOff" class="badge badge-pill bg-kickoff">2</span> Kick-Off</div>
+              <div class="mr-3"><span id="legendCFLRSchematic" class="badge badge-pill bg-schematics">4</span> Schematics</div>
+              <div class="mr-3"><span id="legendCFLRLayout" class="badge badge-pill bg-layout">7</span> Layout</div>
+              <div class="mr-3"><span id="legendCFLRPowerOn" class="badge badge-pill bg-poweron">2</span> Power-On</div>
+              <div class="mr-3"><span id="legendCFLRLaunch" class="badge badge-pill bg-launched">0</span> Launch!</div>
+            </div>
+          </div>
+          <div class="col-md-3 pr-0">
+            <div class="card" style="width: 10rem;">
+              <div class="card-body pt-2 pb-3">
+                <h3 id="CFLRTotal" class="card-title mb-1">18</h3>
+                <h6 class="card-subtitle mb-1 text-muted">Designs</h6> <!-- TO UPDATE/ADD -->
+                <span id="CFLRStat" class="badge badge-light mb-2"></span> <!-- TO UPDATE/ADD -->
+                <p id="CFLRISV" class="card-text">+ 9 ISV Partners</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="ProgramWHL" class="row pb-5">
+          <div class="col-md-9 pr-0">
+            <a id="WHLUrl" class="black-text" href="/eatracking/program?id=13&amp;x=WHL"><h4>Whiskey Lake</h4></a>
+            <div class="progress" style="height: 30px;">
+              <div id="barWHLCanceled" class="progress-bar bg-canceled" role="progressbar" style="width: 4.8%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barWHLWaiting" class="progress-bar bg-waiting" role="progressbar" style="width: 23.8%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barWHLKickOff" class="progress-bar bg-kickoff" role="progressbar" style="width: 57.1%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barWHLSchematic" class="progress-bar bg-schematics" role="progressbar" style="width: 9.5%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barWHLLayout" class="progress-bar bg-layout" role="progressbar" style="width: 4.8%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barWHLPowerOn" class="progress-bar bg-poweron" role="progressbar" style="width: 0%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barWHLLaunch" class="progress-bar bg-launched" role="progressbar" style="width: 0%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="d-flex flex-wrap my-1">
+              <div class="mr-3"><span id="legendWHLCanceled" class="badge badge-pill badge-canceled">1</span> Canceled</div>
+              <div class="mr-3"><span id="legendWHLWaiting" class="badge badge-pill badge-waiting">5</span> Still Waiting/On Hold</div>
+              <div class="mr-3"><span id="legendWHLKickOff" class="badge badge-pill bg-kickoff">12</span> Kick-Off</div>
+              <div class="mr-3"><span id="legendWHLSchematic" class="badge badge-pill bg-schematics">2</span> Schematics</div>
+              <div class="mr-3"><span id="legendWHLLayout" class="badge badge-pill bg-layout">1</span> Layout</div>
+              <div class="mr-3"><span id="legendWHLPowerOn" class="badge badge-pill bg-poweron">0</span> Power-On</div>
+              <div class="mr-3"><span id="legendWHLLaunch" class="badge badge-pill bg-launched">0</span> Launch!</div>
+            </div>
+          </div>
+          <div class="col-md-3 pr-0">
+            <div class="card" style="width: 10rem;">
+              <div class="card-body pt-2 pb-3">
+                <h3 id="WHLTotal" class="card-title mb-1">21</h3>
+                <h6 class="card-subtitle mb-1 text-muted">Designs</h6> <!-- TO UPDATE/ADD -->
+                <p id="WHLStat" class="badge badge-light mb-2"></p> <!-- TO UPDATE/ADD -->
+                <p id="WHLISV" data-url="http://.../x=WHL&sw=True" class="card-text">+ 3 ISV Partners</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h1 class="pb-2 text-right">
+          Atom <small id="SwimlaneTotalAtom"class="badge-pill group-total badge-primary" style="font-size: 50%;">27</small>
+          <div class="progress" style="height: 4px;">
+            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"></div>
+          </div>
+        </h1>
+        <div id="ProgramEHL" class="row pb-5">
+          <div class="col-md-9 pr-0">
+            <a id="EHLUrl" class="black-text" href="/eatracking/program?id=14&amp;x=EHL"><h4>Elkhart Lake</h4></a>
+            <div class="progress" style="height: 30px;">
+              <div id="barEHLCanceled" class="progress-bar bg-canceled" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barEHLWaiting" class="progress-bar bg-waiting" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barEHLKickOff" class="progress-bar bg-kickoff" role="progressbar" style="width: 100%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barEHLSchematic" class="progress-bar bg-schematics" role="progressbar" style="width: 0%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barEHLLayout" class="progress-bar bg-layout" role="progressbar" style="width: 0%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barEHLPowerOn" class="progress-bar bg-poweron" role="progressbar" style="width: 0%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+              <div id="barEHLLaunch" class="progress-bar bg-launch" role="progressbar" style="width: 0%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="d-flex flex-wrap my-1">
+              <div class="mr-3"><span id="legendEHLCanceled" class="badge badge-pill badge-canceled">0</span> Canceled</div>
+              <div class="mr-3"><span id="legendEHLWaiting" class="badge badge-pill badge-waiting">0</span> Still Waiting/On Hold</div>
+              <div class="mr-3"><span id="legendEHLKickOff" class="badge badge-pill bg-kickoff">0</span> Kick-Off</div>
+              <div class="mr-3"><span id="legendEHLSchematic" class="badge badge-pill bg-schematics">1</span> Schematics</div>
+              <div class="mr-3"><span id="legendEHLLayout" class="badge badge-pill bg-layout">0</span> Layout</div>
+              <div class="mr-3"><span id="legendEHLPowerOn" class="badge badge-pill bg-poweron">0</span> Power-On</div>
+              <div class="mr-3"><span id="legendEHLLaunch" class="badge badge-pill bg-launched">0</span> Launch!</div>
+            </div>
+          </div>
+          <div class="col-md-3 pr-0">
+            <div class="card" style="width: 10rem;">
+              <div class="card-body pt-2 pb-3">
+                <h3 id="EHLTotal" class="card-title mb-1">1</h3>
+                <h6 class="card-subtitle mb-1 text-muted">Designs</h6> <!-- TO UPDATE/ADD -->
+                <p id="EHLStat" class="badge badge-light mb-2"></p> <!-- TO UPDATE/ADD -->
+                <p id="EHLISV" data-url="http://.../x=EHL&sw=True" class="card-text">+ 8 ISV Partners</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--
+        <div class="row pb-5">
+          <div class="col-md-9 pr-0">
+            <h4>[EA Program Name]</h4>
+            [Insert bar chart here...]
+          </div>
+          <div class="col-md-3 pr-0">
+            <div class="card" style="width: 10rem;">
+              <div class="card-body pt-2 pb-3">
+                <h3 class="card-title mb-1">[#]</h3>
+                <h6 class="card-subtitle mb-2 text-muted">Designs</h6>
+                <p class="card-text mb-0">[# @ latest milestone] @[Latest milestone]</p>
+                <p class="card-text">(+[# since last month @ latestmilestone] MTD)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="globalsearchModal" tabindex="-1" aria-labelledby="globalsearchModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content" style="height: 480px;">
+        <div class="modal-header">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg></div>
+            </div>
+            <input type="text" placeholder="Global search..." id="globalSearch" class="form-control">
+          </div>
+        </div>
+        <div class="modal-body" id="globalSearchResults">
+          <!--<h5>Programs</h5>
+          <div class="card">
+            <ul class="list-group list-group-flush" id="gsPrograms">
+              <li class="list-group-item active" data-program="Whiskey Lake HW WHL" data-swimlane="Core" data-leads="scott@intel.com"><strong>Whiskey Lake (HW)</strong> <span class="badge badge-success">Core</span> <span class="text-muted">69 designs</span></li>
+              <li class="list-group-item" data-program="Whiskey Lake SW WHL" data-swimlane="Core" data-leads="scott@intel.com"><strong>Whiskey Lake (SW)</strong> <span class="badge badge-success">Core</span> <span class="text-muted">5 partners</span></li>
+            </ul>
+          </div>-->
+          <h5 class="pt-2">
+            Designs <small id="gsDesignsTotal" class="badge-pill group-total badge-primary">0</small>
+          </h5>
+          <div class="spinner-border d-none" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="card">
+            <ul class="list-group list-group-flush" id="gsDesigns">
+              <!--<li class="list-group-item" data-design="Design Name" data-stage="PO poweron power-on" data-program="Coffee Lake Refresh HW CFLR CFL-R" data-swimlane="Core" data-leads="scott.else@intel.com"><span class="badge ProgramCFLR">CFL-R</span> <strong>Design Name</strong> <span class="badge badge-pill bg-poweron">PO</span> <span class="text-muted">w/2 active IPS</span></li>
+              <li class="list-group-item" data-design="Another Design" data-stage="KO kickoff kick-off" data-program="Coffee Lake Refresh HW CFLR CFL-R" data-swimlane="Core" data-leads="someone.else@intel.com"><span class="badge ProgramCFLR">CFL-R</span> <strong>Another Design</strong> <span class="badge badge-pill bg-kickoff">KO</span>  <span class="text-danger">behind</span> <span class="text-muted">w/2 active IPS</span></li>
+              <li class="list-group-item" data-design="Yet Another One" data-stage="canceled" data-program="Elkhart Lake HW EHL" data-swimlane="Atom" data-leads="someone.else@intel.com"><span class="badge ProgramEHL text-muted">EHL</span> <strong class="text-muted">Yet Another One</strong> <span class="badge badge-pill bg-canceled">Canceled</span> <span class="text-muted">w/1 active IPS</span></li>
+              <li class="list-group-item" data-design="This One" data-stage="SCH schematics" data-extra="behind" data-program="Elkhart Lake HW EHL" data-swimlane="Atom" data-leads="someone.else@intel.com"><span class="badge ProgramEHL">EHL</span> <strong class="">This One</strong> <span class="badge badge-pill bg-schematics ">SCH</span> <span class="text-muted">w/12 active IPS</span></li>-->
+            </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <span class="pr-1">Search applies to:</span> <span class="btn btn-sm btn-dark" id="gsToggleprogram" onclick="gsToggle('program')">Program</span> <span class="btn btn-sm btn-dark" id="gsToggledesign" onclick="gsToggle('design')">Design</span> <span class="btn btn-sm btn-dark" id="gsToggleaccount"  onclick="gsToggle('account')">Account</span> <span class="btn btn-sm btn-dark" id="gsTogglestage" onclick="gsToggle('stage')">Stage</span> <span class="btn btn-sm btn-dark" id="gsTogglegeo" onclick="gsToggle('geo')">GEO</span> <span class="btn btn-sm btn-dark" id="gsToggleswimlane" onclick="gsToggle('swimlane')">Swimlane</span> <span class="btn btn-sm btn-dark" id="gsToggleleads" onclick="gsToggle('leads')">Leads</span> <button type="button" class="btn btn-link pl-2" data-toggle="tooltip" data-placement="top" title="Arrow keys to move around, enter to open, ctrl-enter to edit, add '!' in front of text to exclude (e.g. to see all atom designs except Elkhart Lake's: Atom !EHL)">Help</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+</html>

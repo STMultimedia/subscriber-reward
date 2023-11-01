@@ -1,0 +1,215 @@
+/* For testing: https://www.sassmeister.com/ */
+
+/*TO ADD*/
+.ease {
+  transition: 0.5s ease;
+}
+
+.report-type {
+  cursor: pointer
+}
+
+#gsDesigns .list-group-item {
+  cursor: pointer
+}
+
+a.black-text {
+  color: #355a91 !important;
+  text-decoration: underline;
+}
+
+.split .progress-bar {
+  cursor: pointer
+}
+.legend-item {
+  cursor: pointer
+}
+.bgd-navbar {
+  background-color: #0071c5;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #efefef;
+}
+.text-muted {
+  color: #acb3bb!important;
+}
+.text-total {
+  color: #5c636b!important;
+}
+.bg-waiting {
+  background-color: #e9ecef;
+  color: #333
+}
+.bg-Waiting {
+  background-color: #e9ecef;
+  color: #333
+}
+.badge-waiting {
+  color: #000;
+  background-color: #e9ecef
+}
+.bg-canceled {
+  color: #000;
+  background-color: #f5aeb5
+}
+.bg-Canceled {
+  color: #000;
+  background-color: #f5aeb5
+}
+.badge-canceled {
+  color: #000;
+  background-color: #f5aeb5
+}
+.badge-poweron {
+  color: #fff;
+  background-color: #17a2b8
+}
+.bg-warning {
+  background-color: #ffc107!important;
+  color: #000
+}
+
+.bg-kickoff {
+    background-color: #073B4C!important;
+    color: #fff
+}
+.bg-KickOff {
+    background-color: #073B4C!important;
+    color: #fff
+}
+.bg-schematics {
+    color: #000;
+    background-color: #FFCA51!important;
+}
+.bg-Schematic {
+    color: #000;
+    background-color: #FFCA51!important;
+}
+.bg-layout {
+    background-color: #118AB2!important;
+    color: #fff
+}
+.bg-Layout {
+    background-color: #118AB2!important;
+    color: #fff
+}
+.bg-poweron {
+  background-color: #EF476F!important;
+  color: #fff
+}
+.bg-PowerOn {
+    background-color: #EF476F!important;
+  color: #fff
+}
+.bg-launched {
+    color: #000;
+    background-color: #16e640!important;
+}
+.bg-Launch {
+    color: #000;
+    background-color: #16e640!important;
+}
+
+
+/* TODO: create classes for n-splits, m-series from a master list of colors; ditto for milestones (pre-defined and some for later)*/
+
+
+@mixin filtersection($active,$ahover,$inactive,$ihover) {
+  & {
+    background-color: $active;
+    color: #000;
+  }
+  &.inactive {
+    background-color: $inactive;
+    color: #eee;
+  }
+}
+
+@mixin filtersectionlt($active,$ahover,$inactive,$ihover) {
+  & {
+    background-color: $active;
+    color: #fff;
+  }
+  &.inactive {
+    background-color: $inactive;
+    color: #eee;
+  }
+}
+
+.VerticalRBHE {
+  @include filtersection(#B8E986,#B8E986,#b8b8b8,#b8b8b8)
+}
+
+.VerticalISD {
+  @include filtersection(#F8E71C,#F8E71C,#8a8a8a,#8a8a8a)
+}
+
+.VerticalVMC {
+  @include filtersectionlt(#4A90E2,#4A90E2,#969696,#969696)
+}
+
+.GEOAPJ {
+  @include filtersection(#7ED321,#7ED321,#7a7a7a,#7a7a7a)
+}
+
+.GEOASMO {
+  @include filtersection(#F5A623,#F5A623,#8c8c8c,#8c8c8c)
+}
+
+.GEOEMEA {
+  @include filtersection(#FF5A6E,#FF5A6E,#acacac,#acacac)
+}
+
+.GEOPRC {
+  @include filtersection(#8DB1D5,#8DB1D5,#b1b1b1,#b1b1b1)
+}
+
+.ProgramCFLR {
+  @include filtersection(#23F540,#23F540,#8c8c8c,#8c8c8c)
+}
+
+.ProgramWHL {
+  @include filtersection(#67D3E5,#67D3E5,#a6a6a6,#a6a6a6)
+}
+
+.ProgramEHL {
+  @include filtersectionlt(#7A62BF,#7A62BF,#919191,#919191)
+}
+
+.ApplicationeODM {
+  @include filtersection(#F8E71C,#F8E71C,#8a8a8a,#8a8a8a)
+}
+
+.ApplicationOffice-Automation {
+  @include filtersectionlt(#4A90E2,#4A90E2,#969696,#969696)
+}
+
+.ApplicationPublic-Sector {
+  @include filtersection(#7ED321,#7ED321,#7a7a7a,#7a7a7a)
+}
+
+.ApplicationVideo {
+  @include filtersectionlt(#FF5A6E,#FF5A6E,#acacac,#acacac)
+}
+
+.ApplicationMobility {
+  @include filtersection(#F5A623,#F5A623,#8c8c8c,#8c8c8c)
+}
+
+.ApplicationTransactional {
+  @include filtersection(#8DB1D5,#8DB1D5,#b1b1b1,#b1b1b1)
+}
+
+.ApplicationVisual {
+  @include filtersection(#23F540,#23F540,#8c8c8c,#8c8c8c)
+}
+
+.ApplicationEnergy {
+  @include filtersection(#67D3E5,#67D3E5,#a6a6a6,#a6a6a6)
+}
+
+.ApplicationIndustrial {
+  @include filtersectionlt(#7A62BF,#7A62BF,#919191,#919191)
+}

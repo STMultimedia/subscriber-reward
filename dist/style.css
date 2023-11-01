@@ -1,0 +1,306 @@
+/* For testing: https://www.sassmeister.com/ */
+/*TO ADD*/
+.ease {
+  transition: 0.5s ease;
+}
+
+.report-type {
+  cursor: pointer;
+}
+
+#gsDesigns .list-group-item {
+  cursor: pointer;
+}
+
+a.black-text {
+  color: #355a91 !important;
+  text-decoration: underline;
+}
+
+.split .progress-bar {
+  cursor: pointer;
+}
+
+.legend-item {
+  cursor: pointer;
+}
+
+.bgd-navbar {
+  background-color: #0071c5;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+  color: #16181b;
+  text-decoration: none;
+  background-color: #efefef;
+}
+
+.text-muted {
+  color: #acb3bb !important;
+}
+
+.text-total {
+  color: #5c636b !important;
+}
+
+.bg-waiting {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+.bg-Waiting {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+.badge-waiting {
+  color: #000;
+  background-color: #e9ecef;
+}
+
+.bg-canceled {
+  color: #000;
+  background-color: #f5aeb5;
+}
+
+.bg-Canceled {
+  color: #000;
+  background-color: #f5aeb5;
+}
+
+.badge-canceled {
+  color: #000;
+  background-color: #f5aeb5;
+}
+
+.badge-poweron {
+  color: #fff;
+  background-color: #17a2b8;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+  color: #000;
+}
+
+.bg-kickoff {
+  background-color: #073B4C !important;
+  color: #fff;
+}
+
+.bg-KickOff {
+  background-color: #073B4C !important;
+  color: #fff;
+}
+
+.bg-schematics {
+  color: #000;
+  background-color: #FFCA51 !important;
+}
+
+.bg-Schematic {
+  color: #000;
+  background-color: #FFCA51 !important;
+}
+
+.bg-layout {
+  background-color: #118AB2 !important;
+  color: #fff;
+}
+
+.bg-Layout {
+  background-color: #118AB2 !important;
+  color: #fff;
+}
+
+.bg-poweron {
+  background-color: #EF476F !important;
+  color: #fff;
+}
+
+.bg-PowerOn {
+  background-color: #EF476F !important;
+  color: #fff;
+}
+
+.bg-launched {
+  color: #000;
+  background-color: #16e640 !important;
+}
+
+.bg-Launch {
+  color: #000;
+  background-color: #16e640 !important;
+}
+
+/* TODO: create classes for n-splits, m-series from a master list of colors; ditto for milestones (pre-defined and some for later)*/
+.VerticalRBHE {
+  background-color: #B8E986;
+  color: #000;
+}
+.VerticalRBHE.inactive {
+  background-color: #b8b8b8;
+  color: #eee;
+}
+
+.VerticalISD {
+  background-color: #F8E71C;
+  color: #000;
+}
+.VerticalISD.inactive {
+  background-color: #8a8a8a;
+  color: #eee;
+}
+
+.VerticalVMC {
+  background-color: #4A90E2;
+  color: #fff;
+}
+.VerticalVMC.inactive {
+  background-color: #969696;
+  color: #eee;
+}
+
+.GEOAPJ {
+  background-color: #7ED321;
+  color: #000;
+}
+.GEOAPJ.inactive {
+  background-color: #7a7a7a;
+  color: #eee;
+}
+
+.GEOASMO {
+  background-color: #F5A623;
+  color: #000;
+}
+.GEOASMO.inactive {
+  background-color: #8c8c8c;
+  color: #eee;
+}
+
+.GEOEMEA {
+  background-color: #FF5A6E;
+  color: #000;
+}
+.GEOEMEA.inactive {
+  background-color: #acacac;
+  color: #eee;
+}
+
+.GEOPRC {
+  background-color: #8DB1D5;
+  color: #000;
+}
+.GEOPRC.inactive {
+  background-color: #b1b1b1;
+  color: #eee;
+}
+
+.ProgramCFLR {
+  background-color: #23F540;
+  color: #000;
+}
+.ProgramCFLR.inactive {
+  background-color: #8c8c8c;
+  color: #eee;
+}
+
+.ProgramWHL {
+  background-color: #67D3E5;
+  color: #000;
+}
+.ProgramWHL.inactive {
+  background-color: #a6a6a6;
+  color: #eee;
+}
+
+.ProgramEHL {
+  background-color: #7A62BF;
+  color: #fff;
+}
+.ProgramEHL.inactive {
+  background-color: #919191;
+  color: #eee;
+}
+
+.ApplicationeODM {
+  background-color: #F8E71C;
+  color: #000;
+}
+.ApplicationeODM.inactive {
+  background-color: #8a8a8a;
+  color: #eee;
+}
+
+.ApplicationOffice-Automation {
+  background-color: #4A90E2;
+  color: #fff;
+}
+.ApplicationOffice-Automation.inactive {
+  background-color: #969696;
+  color: #eee;
+}
+
+.ApplicationPublic-Sector {
+  background-color: #7ED321;
+  color: #000;
+}
+.ApplicationPublic-Sector.inactive {
+  background-color: #7a7a7a;
+  color: #eee;
+}
+
+.ApplicationVideo {
+  background-color: #FF5A6E;
+  color: #fff;
+}
+.ApplicationVideo.inactive {
+  background-color: #acacac;
+  color: #eee;
+}
+
+.ApplicationMobility {
+  background-color: #F5A623;
+  color: #000;
+}
+.ApplicationMobility.inactive {
+  background-color: #8c8c8c;
+  color: #eee;
+}
+
+.ApplicationTransactional {
+  background-color: #8DB1D5;
+  color: #000;
+}
+.ApplicationTransactional.inactive {
+  background-color: #b1b1b1;
+  color: #eee;
+}
+
+.ApplicationVisual {
+  background-color: #23F540;
+  color: #000;
+}
+.ApplicationVisual.inactive {
+  background-color: #8c8c8c;
+  color: #eee;
+}
+
+.ApplicationEnergy {
+  background-color: #67D3E5;
+  color: #000;
+}
+.ApplicationEnergy.inactive {
+  background-color: #a6a6a6;
+  color: #eee;
+}
+
+.ApplicationIndustrial {
+  background-color: #7A62BF;
+  color: #fff;
+}
+.ApplicationIndustrial.inactive {
+  background-color: #919191;
+  color: #eee;
+}
